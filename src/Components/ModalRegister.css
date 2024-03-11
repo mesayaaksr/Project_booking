@@ -1,0 +1,78 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  z-index: 1001;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+}
+
+.modal-content h2 {
+  text-align: center;
+  color: #4a4a4a;
+  margin-bottom: 20px;
+}
+
+.form-field {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.form-field input {
+  width: 80%;
+  padding: 10px;
+  padding-left: 35px;
+  border: 1px solid #c6c6c6;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.form-field i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #c6c6c6;
+}
+
+.captcha {
+  display: flex;
+  justify-content: space-between;
+}
+
+.captcha .captcha-image {
+  background: #e4e4e4;
+  border-radius: 20px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn-register {
+  width: 100%;
+  padding: 10px;
+  background-color: #7d4cdb;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+}
