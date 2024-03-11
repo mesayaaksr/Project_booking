@@ -1,0 +1,80 @@
+.home-container {
+  /* background-image: url('path-to-your-background-image.jpg'); Add your image path here */
+  background-size: cover; /* Cover the entire space */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  min-height: 100vh; /* Minimum height to cover the full viewport height */
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Vertical center */
+  justify-content: center; /* Horizontal center */
+  color: #fff;
+}
+
+.search-container {
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay */
+  padding: 40px;
+  border-radius: 8px;
+  display: inline-block; /* You can remove this if you're centering with flex */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds shadow for depth */
+  /* Additional styling */
+}
+
+.datepicker-container {
+  display: flex; /* Aligns the input and button inline */
+  align-items: center; /* Keeps items vertically aligned */
+  gap: 10px; /* Spacing between elements */
+}
+
+.datepicker-input {
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc; /* A subtle border */
+  border-radius: 4px; /* Rounded corners */
+  width: 200px; /* Or your desired width */
+}
+
+.search-button {
+  padding: 10px 20px;
+  background-color: #0063e5;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px; /* Rounded corners to match the input */
+}
+
+.booking-form {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.booking-form h2 {
+  margin-bottom: 10px;
+}
+
+.booking-form label {
+  display: flex;
+  margin-bottom: 5px;
+  flex-direction: column;
+  width: 80%;
+}
+
+.booking-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-button {
+  padding: 10px 15px;
+  background-color: #0063e5;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+}
