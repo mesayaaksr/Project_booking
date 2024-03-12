@@ -11,11 +11,18 @@ function UILogin() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (email === "Username" && password === "Password") {
-      console.log("Login successful for username:", email);
+    const savedData = localStorage.getItem("userData");
+    const userData = savedData ? JSON.parse(savedData) : null;
+
+    if (
+      userData &&
+      email === userData.username &&
+      password === userData.password
+    ) {
       navigate("/home");
-    } else {
       console.log("Login failed. Please check your credentials.");
+    } else {
+      alert("Invalid username or password.");
     }
   };
 
@@ -44,7 +51,7 @@ function UILogin() {
             <h2 className="login-title">USER LOGIN</h2>
             <input
               type="text"
-              placeholder="Email"
+              placeholder="Username"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
