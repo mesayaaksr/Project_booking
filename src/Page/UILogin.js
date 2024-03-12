@@ -11,8 +11,12 @@ function UILogin() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Login submitted for email:", email);
-    navigate("/home");
+    if (email === "Username" && password === "Password") {
+      console.log("Login successful for username:", email);
+      navigate("/home");
+    } else {
+      console.log("Login failed. Please check your credentials.");
+    }
   };
 
   const showRegisterModal = () => {
@@ -38,8 +42,18 @@ function UILogin() {
         <div className="login-container">
           <form onSubmit={handleSubmit} className="login-form">
             <h2 className="login-title">USER LOGIN</h2>
-            <input type="text" placeholder="Username" />
-            <input type="password" placeholder="Password" />
+            <input
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <button type="submit" className="login-button">
               LOGIN
             </button>
