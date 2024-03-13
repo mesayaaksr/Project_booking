@@ -1,3 +1,4 @@
+// src/UILogin.js
 import React, { useState } from "react";
 import "./UILogin.css";
 import ModalRegister from "../Components/ModalRegister";
@@ -20,7 +21,6 @@ function UILogin() {
       password === userData.password
     ) {
       navigate("/home");
-      console.log("Login failed. Please check your credentials.");
     } else {
       alert("Invalid username or password.");
     }
@@ -36,11 +36,11 @@ function UILogin() {
 
   return (
     <div className="login-page">
-      <div className="welcome-section" >
+      <div className="welcome-section">
         <div className="welcome-text">
-          <h1>Welcome to Luxoasis </h1>
+          <h1>Welcome to Luxoasis</h1>
           <p>
-          A resort filled with Nature and tranquility, the paradise you choose for yourself.a.
+          A resort filled with Nature and tranquility, the paradise you choose for yourself.
           </p>
         </div>
       </div>
@@ -51,14 +51,16 @@ function UILogin() {
             <input
               type="text"
               placeholder="Username"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(event) => {
+                setEmail(event.target.value);
+              }}
             />
             <input
               type="password"
               placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(event) => {
+                setPassword(event.target.value);
+              }}
             />
             <button type="submit" className="login-button">
               LOGIN

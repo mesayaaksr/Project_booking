@@ -1,32 +1,28 @@
-import React, { useState, useEffect } from "react";
-import "./ModalRegister.css"; // Import your new stylesheet
+import React, { useState } from "react";
+import "./ModalRegister.css";
+import { CiUser, CiPhone } from "react-icons/ci";
+import { PiPasswordThin } from "react-icons/pi";
 
 const ModalRegister = ({ isOpen, onClose }) => {
-  const [registrationInfo, setRegistrationInfo] = useState(() => {
-    const savedRegistrationInfo = JSON.parse(localStorage.getItem("registrationInfo")) || {};
-    return savedRegistrationInfo;
-  });
-  const [registrationStatus, setRegistrationStatus] = useState(null);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setRegistrationInfo((prevInfo) => ({
-      ...prevInfo,
-      [name]: value,
-    }));
-  };
+  const [username, setUsername] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [rePassword, setRePassword] = useState(null);
+  const [phoneNumber, setPhoneNumber] = useState(null);
 
   const handleRegister = () => {
-    console.log("Registration Info:", registrationInfo);
-
-    setRegistrationStatus("Registration successful!"); 
+    if (password !== rePassword) {
+      alert("Passwords do not match.");
+      return;
+    }
+    const userData = { username, password, phoneNumber };
+    localStorage.setItem("userData", JSON.stringify(userData));
+    console.log(`User registered: ${username}`);
+    onClose();
   };
 
-  useEffect(() => {
-    localStorage.setItem("registrationInfo", JSON.stringify(registrationInfo));
-  }, [registrationInfo]);
-
-  if (!isOpen) return null;
+  if (!isOpen) {
+    return null;
+  }
 
   return (
     <>
@@ -34,51 +30,56 @@ const ModalRegister = ({ isOpen, onClose }) => {
       <div className="modal-content">
         <h2>Register Now</h2>
         <div className="form-field">
-          <i className="icon-username" /> 
-          <input
-            type="text"
-            name="username"
-            placeholder="Enter your username"
-            value={registrationInfo.username}
-            onChange={handleInputChange}
-          />
+          <div className="input-icon-wrapper">
+            <CiUser className="input-icon" />
+            <input
+              type="text"
+              placeholder="Enter your username"
+              onChange={(event) => {
+                setUsername(event.target.value);
+              }}
+            />
+          </div>
         </div>
         <div className="form-field">
-          <i className="icon-password" />
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter your password"
-            value={registrationInfo.password}
-            onChange={handleInputChange}
-          />
+          <div className="input-icon-wrapper">
+            <PiPasswordThin className="input-icon" />
+            <input
+              type="password"
+              placeholder="Enter your password"
+              onChange={(event) => {
+                setPassword(event.target.value);
+              }}
+            />
+          </div>
         </div>
         <div className="form-field">
-          <i className="icon-password" />
-          <input
-            type="password"
-            name="confirmPassword"
-            placeholder="Re-type your password"
-            value={registrationInfo.confirmPassword}
-            onChange={handleInputChange}
-          />
+          <div className="input-icon-wrapper">
+            <PiPasswordThin className="input-icon" />
+            <input
+              type="password"
+              placeholder="Re-type your password"
+              onChange={(event) => {
+                setRePassword(event.target.value);
+              }}
+            />
+          </div>
         </div>
         <div className="form-field">
-          <i className="icon-phone" />
-          <input
-            type="text"
-            name="phone"
-            placeholder="Enter your phone"
-            value={registrationInfo.phone}
-            onChange={handleInputChange}
-          />
+          <div className="input-icon-wrapper">
+            <CiPhone className="input-icon" />
+            <input
+              type="text"
+              placeholder="Enter your phone"
+              onChange={(event) => {
+                setPhoneNumber(event.target.value);
+              }}
+            />
+          </div>
         </div>
         <button className="btn-register" onClick={handleRegister}>
           Register
         </button>
-        {registrationStatus && (
-          <p className="registration-status">{registrationStatus}</p>
-        )}
       </div>
     </>
   );
