@@ -6,7 +6,8 @@
 
 .welcome-section {
   flex: 1;
-  background: linear-gradient(135deg, #7f7fd5, #86a8e7, #91eae4);
+  background-image: url('https://img2.pic.in.th/pic/19a1d93b3f0a8a4c6.jpeg');
+  /* background: linear-gradient(135deg, #7f7fd5, #86a8e7, #91eae4); */
   color: white;
   padding: 40px;
   display: flex;

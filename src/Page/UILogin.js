@@ -36,12 +36,11 @@ function UILogin() {
 
   return (
     <div className="login-page">
-      <div className="welcome-section">
+      <div className="welcome-section" >
         <div className="welcome-text">
-          <h1>Welcome to website</h1>
+          <h1>Welcome to Luxoasis </h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          A resort filled with Nature and tranquility, the paradise you choose for yourself.a.
           </p>
         </div>
       </div>
